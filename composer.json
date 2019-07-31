@@ -1,0 +1,17 @@
+{
+    "name": "milchek/trustpilot-api-wordpress",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Milchek\\TrustpilotApiWordPress\\": "inc"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mateusz Michalik",
+            "email": "mkmichalik@gmail.com"
+        }
+    ]
+}
