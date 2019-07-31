@@ -30,8 +30,6 @@ class Authentication
 
     public function request_access_token($code)
     {
-        $admin = new Admin();
-
         $api_key = esc_attr(get_option('trustpilot_api_key'));
         $api_secret = esc_attr(get_option('trustpilot_api_secret'));
         $authorization = base64_encode($api_key . ':' . $api_secret);
