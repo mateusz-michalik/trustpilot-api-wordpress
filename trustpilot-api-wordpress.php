@@ -25,6 +25,6 @@ require TRUSTPILOT_API_WP_PLUGIN_DIR . 'vendor/autoload.php';
 use Milchek\TrustpilotApiWordPress\Admin;
 
 if (is_admin()) {
-    $trustpilo_api_admin = new Admin();
-    add_action('init', array($trustpilo_api_admin, 'init'));
+    $trustpilot_api_admin = new Admin();
+    add_action('init', array($trustpilot_api_admin, 'init'));
 }

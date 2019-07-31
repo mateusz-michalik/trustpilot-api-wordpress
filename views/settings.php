@@ -35,7 +35,7 @@
         <?php if (!esc_attr(get_option('trustpilot_api_access_token'))): ?>
             <p>You have not connected and authorized this application with your Trustpilot account</p>
             <p>
-                <a href="<?=$this->get_oauth_url()?>" class="button button-primary">Connect to Trustpilot</a>
+                <a href="<?= $authentication->get_oauth_url() ?>" class="button button-primary">Connect to Trustpilot</a>
             </p>
         <?php else: ?>
             <p>You have successfully connected with the TrustPilot API for your app.</p>
