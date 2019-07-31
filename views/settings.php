@@ -16,6 +16,10 @@
         do_settings_sections('trustpilot-api-settings');
         ?>
         <p>
+            <label>Name:</label>
+            <input type="text" name="trustpilot_api_name" value="<?=esc_attr(get_option('trustpilot_api_name'))?>">
+        </p>
+        <p>
             <label>API Key:</label>
             <input type="text" name="trustpilot_api_key" value="<?=esc_attr(get_option('trustpilot_api_key'))?>">
         </p>
