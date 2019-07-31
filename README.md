@@ -13,3 +13,14 @@ A plugin to integrate your WordPress site with the Trustpilot API. The plugin wi
 2. Activate the plugin
 3. Add your Trustpilot API credentials
 4. Click 'import' to start the import process
+
+
+## Resources
+
+Trustpilot Applications: https://businessapp.b2b.trustpilot.com/#/applications/
+
+Authentication Methods: https://developers.trustpilot.com/authentication
+
+Business Unit ID Retrieval: https://developers.trustpilot.com/tutorials/how-to-find-your-business-unit-id
+
+Business Unit API: https://developers.trustpilot.com/business-units-api#get-a-business-unit's-reviews
