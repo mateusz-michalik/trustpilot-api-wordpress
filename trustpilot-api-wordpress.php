@@ -23,6 +23,11 @@ define('TRUSTPILOT_API_WP_API_NAMESPACE', 'trustpilot-api-wordpress/v1');
 require TRUSTPILOT_API_WP_PLUGIN_DIR . 'vendor/autoload.php';
 
 use Milchek\TrustpilotApiWordPress\Admin;
+use Milchek\TrustpilotApiWordPress\CustomPostTypes;
+use Milchek\TrustpilotApiWordPress\CustomTaxonomies;
+
+$trustpilot_custom_post_types = new CustomPostTypes();
+$trustpilot_custom_taxonomies = new CustomTaxonomies();
 
 if (is_admin()) {
     $trustpilot_api_admin = new Admin();

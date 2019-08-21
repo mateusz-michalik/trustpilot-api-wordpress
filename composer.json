@@ -1,8 +1,6 @@
 {
     "name": "milchek/trustpilot-api-wordpress",
-    "require": {
-        "guzzlehttp/guzzle": "^6.3"
-    },
+    "require": {},
     "autoload": {
         "psr-4": {
             "Milchek\\TrustpilotApiWordPress\\": "inc"
