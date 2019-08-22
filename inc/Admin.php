@@ -32,7 +32,7 @@ class Admin
         );
 
         add_submenu_page(
-            $this->$settings_slug,
+            $this->settings_slug,
             'Trustpilot API',
             'Settings',
             'administrator',
