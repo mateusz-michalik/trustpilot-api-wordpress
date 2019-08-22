@@ -20,11 +20,13 @@ require TRUSTPILOT_API_WP_PLUGIN_DIR . 'vendor/autoload.php';
 
 use Milchek\TrustpilotApiWordPress\Admin;
 use Milchek\TrustpilotApiWordPress\CustomMetaBoxes;
+use Milchek\TrustpilotApiWordPress\CustomPostColumns;
 use Milchek\TrustpilotApiWordPress\CustomPostTypes;
 use Milchek\TrustpilotApiWordPress\CustomTaxonomies;
 use Milchek\TrustpilotApiWordPress\Importer;
 
 $trustpilot_custom_post_types = new CustomPostTypes();
+$trustpilot_custom_post_columns = new CustomPostColumns();
 $trustpilot_custom_meta_boxes = new CustomMetaBoxes();
 $trustpilot_custom_taxonomies = new CustomTaxonomies();
 $trustpilot_importer = new Importer();
