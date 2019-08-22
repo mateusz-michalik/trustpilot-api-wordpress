@@ -7,7 +7,7 @@ Version: 0.1
 Author: Mateusz Michalik
 Author URI: https://www.milchek.com
 License: GPL2
-*/
+ */
 
 if (!defined('ABSPATH')) {
     exit;
@@ -19,11 +19,13 @@ define('TRUSTPILOT_API_WP_PLUGIN_URL', plugin_dir_url(__FILE__));
 require TRUSTPILOT_API_WP_PLUGIN_DIR . 'vendor/autoload.php';
 
 use Milchek\TrustpilotApiWordPress\Admin;
+use Milchek\TrustpilotApiWordPress\CustomMetaBoxes;
 use Milchek\TrustpilotApiWordPress\CustomPostTypes;
 use Milchek\TrustpilotApiWordPress\CustomTaxonomies;
 use Milchek\TrustpilotApiWordPress\Importer;
 
 $trustpilot_custom_post_types = new CustomPostTypes();
+$trustpilot_custom_meta_boxes = new CustomMetaBoxes();
 $trustpilot_custom_taxonomies = new CustomTaxonomies();
 $trustpilot_importer = new Importer();
 
