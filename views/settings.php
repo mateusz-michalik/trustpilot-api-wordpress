@@ -32,17 +32,21 @@
     <hr>
 
     <h2>Application OAUTH</h2>
-    <?php if (!esc_attr(get_option('trustpilot_api_key'))): ?>
+    <?php if (!get_option('trustpilot_api_key')): ?>
         <p>You must enter your API credentials above before you can connect to the Trustpilot API</p>
     <?php else: ?>
 
-        <?php if (!esc_attr(get_option('trustpilot_api_access_token'))): ?>
+        <?php if (!get_option('trustpilot_api_access_token')): ?>
             <p>You have not connected and authorized this application with your Trustpilot account</p>
             <p>
                 <a href="<?= $authentication->get_oauth_url() ?>" class="button button-primary">Connect to Trustpilot</a>
             </p>
         <?php else: ?>
             <p>You have successfully connected with the TrustPilot API for your app.</p>
+            <?php if ($business_unit) : ?>
+                <p><strong>Business Unit ID: </strong><?= $business_unit->id ?></p>
+                <p><strong>Business Unit Display Name: </strong><?= $business_unit->displayName ?></p>
+            <?php endif ?>
         <?php endif?>
     <?php endif?>
     <br>

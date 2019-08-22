@@ -18,7 +18,6 @@ define('TRUSTPILOT_API_WP_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('TRUSTPILOT_API_WP_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('TRUSTPILOT_API_WP_ASSETS_URL', TRUSTPILOT_API_WP_PLUGIN_URL . 'assets/');
 define('TRUSTPILOT_API_WP_LOG_DIR', TRUSTPILOT_API_WP_PLUGIN_DIR . 'logs/');
-define('TRUSTPILOT_API_WP_API_NAMESPACE', 'trustpilot-api-wordpress/v1');
 
 require TRUSTPILOT_API_WP_PLUGIN_DIR . 'vendor/autoload.php';
 
@@ -33,5 +32,4 @@ $trustpilot_importer = new Importer();
 
 if (is_admin()) {
     $trustpilot_api_admin = new Admin();
-    add_action('init', array($trustpilot_api_admin, 'init'));
 }

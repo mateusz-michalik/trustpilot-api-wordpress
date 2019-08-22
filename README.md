@@ -24,3 +24,5 @@ Authentication Methods: https://developers.trustpilot.com/authentication
 Business Unit ID Retrieval: https://developers.trustpilot.com/tutorials/how-to-find-your-business-unit-id
 
 Business Unit API: https://developers.trustpilot.com/business-units-api#get-a-business-unit's-reviews
+
+Business Units Reviews Retrieval: https://developers.trustpilot.com/tutorials/how-to-get-all-your-service-reviews
