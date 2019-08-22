@@ -17,11 +17,6 @@ class Importer
                 'methods' => 'GET',
                 'callback' => array($this, 'import_reviews'),
             ));
-
-            register_rest_route('trustpilot-api-wordpress/v1/', 'import-review-categories', array(
-                'methods' => 'GET',
-                'callback' => array($this, 'import_review_categories'),
-            ));
         });
     }
 
@@ -154,10 +149,5 @@ class Importer
         }
 
         return $review_post_id;
-    }
-
-    public function import_review_categories()
-    {
-        wp_send_json(true);
     }
 }
