@@ -13,11 +13,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TRUSTPILOT_API_WP_VERSION', '1.0');
 define('TRUSTPILOT_API_WP_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('TRUSTPILOT_API_WP_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('TRUSTPILOT_API_WP_ASSETS_URL', TRUSTPILOT_API_WP_PLUGIN_URL . 'assets/');
-define('TRUSTPILOT_API_WP_LOG_DIR', TRUSTPILOT_API_WP_PLUGIN_DIR . 'logs/');
 
 require TRUSTPILOT_API_WP_PLUGIN_DIR . 'vendor/autoload.php';
 
