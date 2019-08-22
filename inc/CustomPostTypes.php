@@ -22,7 +22,7 @@ class CustomPostTypes
                 'plural' => 'Reviews',
                 'icon' => 'dashicons-awards',
                 'public' => true,
-                'supports' => array('title', 'excerpt', 'thumbnail'),
+                'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'has_archive' => true,
             ),
         );

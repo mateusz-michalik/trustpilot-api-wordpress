@@ -74,7 +74,9 @@ class Importer
         //iterate through reviews and store as CPTs
         if ($reviews_data->reviews) {
             foreach ($reviews_data->reviews as $review) {
-                $review_import_count++;
+                if ($this->import_review($review)) {
+                    $review_import_count++;
+                }
             }
         }
 
@@ -82,11 +84,22 @@ class Importer
         if ($reviews_data->links) {
             foreach ($reviews_data->links as $link) {
                 if ($link->rel == 'next-page') {
-                    update_option(
-                        $this->import_page_option_name,
-                        str_replace($trustpilot_api->api_url, '', $link->href)
-                    );
+                    $next_page = $link->href;
+                    break;
+                } else {
+                    $next_page = false;
                 }
+            }
+
+            //if a 'next-page' link was found then write it
+            if ($next_page) {
+                update_option(
+                    $this->import_page_option_name,
+                    str_replace($trustpilot_api->api_url, '', $next_page)
+                );
+            } else {
+                //otherwise we're at the end so delete the option so the import can start from page 1
+                delete_option($this->import_page_option_name);
             }
         }
 
@@ -94,7 +107,53 @@ class Importer
             'result' => 'success',
             'reviews_imported' => $review_import_count,
             'message' => 'Import finished from: ' . $resource,
+            'next_page' => $next_page
         ));
+    }
+
+    public function import_review($review)
+    {
+        //query WP to see if review CPT already exists
+        $review_post_query = new \WP_Query(
+            array(
+                'post_type' => 'review',
+                'meta_query' => array(
+                    array(
+                        'key' => 'review_id',
+                        'value' => $review->id,
+                        'compare' => '=',
+                    ),
+                ),
+            )
+        );
+
+        //if review CPT exists
+        if ($review_post_query->have_posts()) {
+            $review_post_id = $review_post_query->posts[0]->ID;
+        } else {
+            //else create a new review CPT
+            $review_post_id = wp_insert_post(array(
+                'post_title' => $review->title,
+                'post_content' => $review->text,
+                'post_excerpt' => wp_trim_excerpt($review->text),
+                'post_date' => $review->createdAt,
+                'post_type' => 'review',
+                'post_author' => 1,
+                'post_status' => 'publish',
+            ));
+        }
+
+        //if CPT created, update post meta with some review data and increment counter
+        if ($review_post_id) {
+            //update the review CPT meta
+            update_post_meta($review_post_id, 'review_id', $review->id);
+            update_post_meta($review_post_id, 'review_stars', $review->stars);
+            update_post_meta($review_post_id, 'review_consumer_id', $review->consumer->id);
+            update_post_meta($review_post_id, 'review_consumer_name', $review->consumer->displayName);
+            update_post_meta($review_post_id, 'review_consumer_location', $review->consumer->displayLocation);
+        }
+
+        return $review_post_id;
     }
 
     public function import_review_categories()
