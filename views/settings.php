@@ -43,9 +43,14 @@
             </p>
         <?php else: ?>
             <p>You have successfully connected with the TrustPilot API for your app.</p>
-            <?php if ($business_unit) : ?>
+            <?php if ($business_unit) :
+                $import_url = get_bloginfo('url') . '/wp-json/trustpilot-api-wordpress/v1/import-reviews';
+                ?>
                 <p><strong>Business Unit ID: </strong><?= $business_unit->id ?></p>
                 <p><strong>Business Unit Display Name: </strong><?= $business_unit->displayName ?></p>
+                <p><strong>You can import reviews via the following URL: </strong>
+                    <a href="<?= $import_url ?>"><?= $import_url ?></a>
+                </p>
             <?php endif ?>
         <?php endif?>
     <?php endif?>
